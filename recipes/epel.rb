@@ -23,7 +23,7 @@ base_url = "http://download.fedora.redhat.com/pub/epel"
 if node[:platform_version].to_i <= 5
   epel_key = "RPM-GPG-KEY-EPEL"
 elsif node[:platform_version].to_i == 6
-  epel_key = "RPM-GPG-KEY-EPEL6"
+  epel_key = "RPM-GPG-KEY-EPEL-6"
 end
 
 yum_key epel_key do
