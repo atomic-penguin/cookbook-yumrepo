@@ -1,9 +1,8 @@
 #
 # Cookbook Name:: yumrepo
-# Recipe:: epel 
+# Recipe:: rbel 
 #
-# Copyright 2010, Eric G. Wolfe
-# Copyright 2010, Tippr Inc.
+# Copyright 2011, Eric G. Wolfe
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
