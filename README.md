@@ -51,9 +51,7 @@ yumrepo::epel
 yumrepo::elff
 -------------
 
-- Provides RPM keys and repo file for
-   ELFF (Enterprise Linux Fast Forward)
-  * See http://elff.bravenet.com for more info
+- ELFF repo is deprecated, this is left in to clean up leftover repo files.
 
 yumrepo::dell
 -------------
@@ -70,6 +68,11 @@ yumrepo::dell
   * disables/enables community/firmware repositories in dell recipe
   * OMSA (hardware) repository will detect Dell hardware platform and
     enable itself, dynamically. It is not affected by this attribute.
+
+yumrepo::rbel
+
+- Provides repo files for rbel.frameos.org
+  * Ruby and Opscode Chef packages for RHEL distros 
 
 yumrepo::vmware-tools
 ---------------------

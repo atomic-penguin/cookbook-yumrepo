@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: yumrepo
-# Recipe:: elff 
+# Recipe:: epel 
 #
 # Copyright 2010, Eric G. Wolfe
 # Copyright 2010, Tippr Inc.
@@ -18,14 +18,18 @@
 # limitations under the License.
 #
 
-# ELFF is defunct, leaving this here to clean up ELFF files for now.
+base_url = "http://rbel.frameos.org/stable"
+rbel_key = "RPM-GPG-KEY-RBEL"
 
-cookbook_file "#{node[:yumrepo][:key_path]}/RPM-GPG-KEY-ELFF"
+cookbook_file "#{node["yumrepo"]["key_path"]}/#{rbel_key}"
 
-yum_key "RPM-GPG-KEY-ELFF" do
-  action :remove
+yum_key rbel_key do
+  action :add
 end
 
-yum_repository "elff" do
-  action :remove
+yum_repository "rbel#{node["platform_version"].to_i}" do
+  description "RBEL #{node["platform_version"].to_i} repo"
+  key rbel_key
+  url "http://rbel.frameos.org/stable/el#{node["platform_version"].to_i}/$basearch"
+  action :add
 end
