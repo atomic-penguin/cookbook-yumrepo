@@ -1,8 +1,8 @@
 #
 # Cookbook Name:: yumrepo
-# Recipe:: rbel 
+# Attributes:: rbel
 #
-# Copyright 2011, Eric G. Wolfe
+# Copyright 2011, Eric G. Wolfe 
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,17 +17,4 @@
 # limitations under the License.
 #
 
-rbel_key = "RPM-GPG-KEY-RBEL"
-
-cookbook_file "#{node["yumrepo"]["key_path"]}/#{rbel_key}"
-
-yum_key rbel_key do
-  action :add
-end
-
-yum_repository "rbel#{node["platform_version"].to_i}" do
-  description "RBEL #{node["platform_version"].to_i} repo"
-  key rbel_key
-  url node["repo"]["rbel"]["url"] 
-  action :add
-end
+default["repo"]["rbel"]["url"] = "http://rbel.frameos.org/rbel#{node[:platform_version].to_i}/stable/el#{node["platform_version"].to_i}/$basearch"
