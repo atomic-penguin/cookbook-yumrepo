@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: yumrepo
-# Attributes:: yum 
+# Attributes:: corporate 
 #
 # Copyright 2011, Eric G. Wolfe 
 #
@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-# Example: override.yum.exclude = "kernel* compat-glibc*"
-default[:yum][:exclude]
-default[:yum][:installonlypkgs]
+default["repo"]["corp"]["name"] = "example"
+default["repo"]["corp"]["url"] = "http://yum.#{node["repo"]["corp"]["name"]}.com/yum"
+default["repo"]["corp"]["key"] = nil
+default["repo"]["corp"]["key_url"] = "#{node["repo"]["corp"]["url"]}/#{node["repo"]["corp"]["key"]}"

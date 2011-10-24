@@ -17,14 +17,14 @@
 # limitations under the License.
 #
 
-yum_key "RPM-GPG-KEY-zenoss" do
-  url "http://dev.zenoss.com/yum/RPM-GPG-KEY-zenoss"
+yum_key node["repo"]["zenoss"]["key"] do
+  url node["repo"]["zenoss"]["key_url"]
   action :add
 end
 
 yum_repository "zenoss" do
   description "ZenOss Stable repo"
-  key "RPM-GPG-KEY-zenoss"
-  url "http://dev.zenoss.com/yum/stable/"
+  key node["repo"]["zenoss"]["key"]
+  url node["repo"]["zenoss"]["url"]
   action :add
 end

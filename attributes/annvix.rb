@@ -1,9 +1,9 @@
 #
 # Cookbook Name:: yumrepo
-# Recipe:: elff 
+# Attributes:: annvix 
 #
-# Copyright 2010, Eric G. Wolfe
-# Copyright 2010, Tippr Inc.
+# Copyright 2011, Eric G. Wolfe 
+# Copyright 2010, Tippr, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,14 +18,5 @@
 # limitations under the License.
 #
 
-# ELFF is defunct, leaving this here to clean up ELFF files for now.
-
-cookbook_file "#{node[:yumrepo][:key_path]}/RPM-GPG-KEY-ELFF"
-
-yum_key "RPM-GPG-KEY-ELFF" do
-  action :remove
-end
-
-yum_repository "elff" do
-  action :remove
-end
+default["repo"]["annvix"]["key"] = "RPM-GPG-KEY-annvix"
+default["repo"]["annvix"]["url"] = "http://repo.annvix.org/media/EL#{node[:platform_version].split('.')[0]}/$basearch" 

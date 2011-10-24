@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: yumrepo
-# Attributes:: default
+# Attributes:: epel 
 #
 # Copyright 2011, Eric G. Wolfe 
 #
@@ -17,4 +17,11 @@
 # limitations under the License.
 #
 
-default["repo"]["key_path"] = "/etc/pki/rpm-gpg"
+default["repo"]["epel"]["url"] = "http://mirrors.fedoraproject.org/mirrorlist?repo=epel-#{node[:platform_version].split('.')[0]}&arch=$basearch"
+
+if node["platform_version"].to_i >= 6
+  set["repo"]["epel"]["key"] = "RPM-GPG-KEY-EPEL-6"
+else
+  set["repo"]["epel"]["key"] = "RPM-GPG-KEY-EPEL"
+end
+default["repo"]["epel"]["key_url"] = "http://download.fedora.redhat.com/pub/epel/#{node["repo"]["epel"]["key"]}"

@@ -18,3 +18,4 @@
 #
 
 default["repo"]["rbel"]["url"] = "http://rbel.frameos.org/stable/el#{node["platform_version"].to_i}/$basearch"
+default["repo"]["rbel"]["key"] = "RPM-GPG-KEY-RBEL"

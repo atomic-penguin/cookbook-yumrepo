@@ -117,6 +117,9 @@ yumrepo::zenoss
 - ZenOss Network Monitoring System
   * See http://zenoss.org for more information
 
+yumrepo::corporate
+- Generic example recipe to be used with an internal Yum mirror, or repository.
+
 License and Author
 ==================
 

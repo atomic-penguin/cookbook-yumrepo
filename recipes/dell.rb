@@ -18,51 +18,51 @@
 # limitations under the License.
 #
 
-if not node[:repo][:dell][:enabled]
+if not node["repo"]["dell"]["enabled"]
   return
 end
 
-cookbook_file "#{node[:yumrepo][:key_path]}/RPM-GPG-KEY-dell"
+cookbook_file "#{node["repo"]["key_path"]}/#{node["repo"]["dell"]["key"]}"
 
-yum_key "RPM-GPG-KEY-dell" do
+yum_key node["repo"]["dell"]["key"] do
   action :add
 end
 
 yum_repository "dell-community-repository" do
   description "Dell Community Repository"
-  url node[:repo][:dell][:community_url]
+  url node["repo"]["dell"]["community_url"]
   mirrorlist true
-  key "RPM-GPG-KEY-dell"
+  key node["repo"]["dell"]["key"]
   action :add
 end
 
 yum_repository "dell-omsa-indep" do
   description "Dell OMSA repository - Hardware independent"
-  url node[:repo][:dell][:omsa_independent_url]
+  url node["repo"]["dell"]["omsa_independent_url"]
   mirrorlist true
-  key "RPM-GPG-KEY-dell"
+  key node["repo"]["dell"]["key"]
   action :add
 end
 
 yum_repository "dell-omsa-specific" do
   description "Dell OMSA repository - Hardware specific"
-  url node[:repo][:dell][:omsa_specific_url]
+  url node["repo"]["dell"]["omsa_specific_url"]
   mirrorlist true
-  key "RPM-GPG-KEY-dell"
+  key node["repo"]["dell"]["key"]
   action :add
 end
 
 yum_repository "fwupdate" do
   description "Firmware updates"
-  url node[:repo][:dell][:firmware_url]
+  url node["repo"]["dell"]["firmware_url"]
   mirrorlist true
-  key "RPM-GPG-KEY-dell"
+  key node["repo"]["dell"]["key"]
   action :add
 end
 
 package "srvadmin-all"
 
-if node[:repo][:dell][:download_firmware]
+if node["repo"]["dell"]["download_firmware"]
   package "firmware-tools" do
     ignore_failure true
   end

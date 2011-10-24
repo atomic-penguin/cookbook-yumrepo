@@ -19,15 +19,19 @@
 #
 
 # VMware
-default[:repo][:vmware][:release] = "4.1"
-default[:repo][:vmware][:install_optional] = false
-if node[:dmi] and node[:dmi][:system] and node[:dmi][:system][:manufacturer] and node[:dmi][:system][:manufacturer] =~ /vmware/i and node[:platform_version].to_f >= 5
-  set[:repo][:vmware][:enabled] = true
+default["repo"]["vmware"]["key"] = "VMWARE-PACKAGING-GPG-KEY"
+default["repo"]["vmware"]["release"] = "4.1"
+default["repo"]["vmware"]["install_optional"] = false
+if node["dmi"] and node["dmi"]["system"] and node["dmi"]["system"]["manufacturer"] and node["dmi"]["system"]["manufacturer"] =~ /vmware/i and node["platform_version"].to_f >= 5
+  set["repo"]["vmware"]["enabled"] = true
 else
-  set[:repo][:vmware][:enabled] = false
+  set["repo"]["vmware"]["enabled"] = false
 end
 
-default[:repo][:vmware][:required_packages] = [
+default["repo"]["vmware"]["url"] = "http://packages.vmware.com/tools/esx/#{node["repo"]["vmware"]["release"]}/rhel#{node["platform_version"].to_i}/$basearch"
+default["repo"]["vmware"]["key_url"] = "http://packages.vmware.com/tools/#{node["repo"]["vmware"]["key"]}.pub"
+
+default["repo"]["vmware"]["required_packages"] = [
   "vmware-tools-nox",
   "vmware-tools-common",
   "vmware-open-vm-tools-common",
@@ -35,7 +39,7 @@ default[:repo][:vmware][:required_packages] = [
   "vmware-open-vm-tools-kmod"
 ]
 
-default[:repo][:vmware][:optional_packages] = [
+default["repo"]["vmware"]["optional_packages"] = [
   "vmware-open-vm-tools-xorg-drv-display",
   "vmware-open-vm-tools-xorg-drv-mouse"
 ]

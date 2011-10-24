@@ -3,12 +3,11 @@ maintainer_email "wolfe21@marshall.edu"
 license          "Apache 2.0"
 description      "Installs and configures EPEL, ELFF, Dell, and VMware yum repositories."
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          "0.14.1"
+version          "0.15.0"
 depends          "yum"
 recipe "yumrepo::default", "Installs EPEL, ELFF, Dell, and VMware Tools repositories."
 recipe "yumrepo::epel", "Installs Fedora Extra Packages for Enterprise Linux (EPEL) repository"
 recipe "yumrepo::elff", "No longer maintained - Deprecated"
-recipe "yumrepo::dell", "Installs Dell (OpenManage) repository"
 recipe "yumrepo::rbel", "Ruby and Opschef packages for RHEL"
 recipe "yumrepo::vmware-tools", "Installs VMware (vmware-tools) repository"
 recipe "yumrepo::annvix", "Annvix repository for packages usable with Red Hat Enterprise Linux and CentOS."
@@ -18,26 +17,6 @@ recipe "yumrepo::zenoss", "YUM repo for ZenOss stable"
 %w{ redhat centos scientific }.each do |os|
   supports os, ">= 5.0"
 end
-
-attribute "repo/dell/community_url",
-  :display_name => "repo/dell/community_url",
-  :description => "URL for the Dell Community repository",
-  :required => "optional"
-
-attribute "repo/dell/firmware_url",
-  :display_name => "repo/dell/firmware_url",
-  :description => "URL for the Dell Firmware repository",
-  :required => "optional"
-
-attribute "repo/dell/omsa_independent_url",
-  :display_name => "repo/dell/omsa_independent_url",
-  :description => "URL for the Dell OMSA hardware independent repository",
-  :required => "optional"
-
-attribute "repo/dell/omsa_specific_url",
-  :display_name => "repo/dell/omsa_specific_url",
-  :description => "URL for the Dell OMSA hardware specific repository",
-  :required => "optional"
 
 attribute "repo/dell/enabled",
   :display_name => "repo/dell/enabled",
@@ -54,11 +33,6 @@ attribute "repo/vmware/release",
   :description => "Used in determining the VMware repo URL",
   :default => "4.1",
   :required => "recommended"
-
-attribute "repo/vmware/url",
-  :display_name => "repo/vmware/url",
-  :description => "The URL for the VMWare Tools yum recipe.",
-  :required => "optional"
 
 attribute "repo/vmware/enabled",
   :display_name => "repo/vwmare/enabled",

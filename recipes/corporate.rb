@@ -1,8 +1,8 @@
 #
 # Cookbook Name:: yumrepo
-# Attributes:: default
+# Recipe:: corporate 
 #
-# Copyright 2011, Eric G. Wolfe 
+# Copyright 2011, Eric G. Wolfe
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,4 +17,22 @@
 # limitations under the License.
 #
 
-default["repo"]["key_path"] = "/etc/pki/rpm-gpg"
+if ! node["repo"]["corp"]["key"].nil?
+  yum_key node["repo"]["corp"]["key"] do
+    url node["repo"]["corp"]["key_url"] 
+    action :add
+  end
+
+  yum_repository node["repo"]["corp"]["name"] do
+    description "#{node["repo"]["corp"]["name"]} Yum Repo"
+    key node["repo"]["corp"]["key"]
+    url node["repo"]["corp"]["url"]
+    action :add
+  end
+else
+  yum_repository node["repo"]["corp"]["name"] do
+    description "#{node["repo"]["corp"]["name"]} Yum Repo"
+    url node["repo"]["corp"]["url"]
+    action :add
+  end
+end

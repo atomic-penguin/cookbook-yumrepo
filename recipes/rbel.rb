@@ -17,17 +17,15 @@
 # limitations under the License.
 #
 
-rbel_key = "RPM-GPG-KEY-RBEL"
+cookbook_file "#{node["repo"]["key_path"]}/#{node["repo"]["rbel"]["key"]}"
 
-cookbook_file "#{node["yumrepo"]["key_path"]}/#{rbel_key}"
-
-yum_key rbel_key do
+yum_key node["repo"]["rbel"]["key"] do
   action :add
 end
 
 yum_repository "rbel#{node["platform_version"].to_i}" do
   description "RBEL #{node["platform_version"].to_i} repo"
-  key rbel_key
+  key node["repo"]["rbel"]["key"] 
   url node["repo"]["rbel"]["url"] 
   action :add
 end

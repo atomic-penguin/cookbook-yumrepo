@@ -1,8 +1,9 @@
 #
 # Cookbook Name:: yumrepo
-# Attributes:: default
+# Attributes:: postgresql9 
 #
 # Copyright 2011, Eric G. Wolfe 
+# Copyright 2010, Tippr, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,4 +18,5 @@
 # limitations under the License.
 #
 
-default["repo"]["key_path"] = "/etc/pki/rpm-gpg"
+default["repo"]["postgresql"]["url"] = "http://yum.pgrpms.org/9.0/redhat/rhel-$releasever-$basearch"
+default["repo"]["postgresql"]["key"] = "RPM-GPG-KEY-PGDG"

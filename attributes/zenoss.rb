@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: yumrepo
-# Attributes:: default
+# Attributes:: zenoss 
 #
 # Copyright 2011, Eric G. Wolfe 
 #
@@ -17,4 +17,6 @@
 # limitations under the License.
 #
 
-default["repo"]["key_path"] = "/etc/pki/rpm-gpg"
+default["repo"]["zenoss"]["url"] = "http://dev.zenoss.com/yum/stable/"
+default["repo"]["zenoss"]["key"] = "RPM-GPG-KEY-zenoss"
+default["repo"]["zenoss"]["key_url"] = "http://dev.zenoss.com/yum/#{node["repo"]["zenoss"]["key"]}"

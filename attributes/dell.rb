@@ -19,13 +19,14 @@
 #
 
 # Dell
-default[:repo][:dell][:community_url] = "http://linux.dell.com/repo/community/mirrors.cgi?osname=el#{node[:platform_version].to_i}\&basearch=$basearch"
-default[:repo][:dell][:firmware_url] = "http://linux.dell.com/repo/firmware/mirrors.pl?dellsysidpluginver=$dellsysidpluginver"
-default[:repo][:dell][:omsa_independent_url] = "http://linux.dell.com/repo/hardware/latest/mirrors.cgi?osname=el$releasever&basearch=$basearch&native=1&dellsysidpluginver=$dellsysidpluginver"
-default[:repo][:dell][:omsa_specific_url] = "http://linux.dell.com/repo/hardware/latest/mirrors.cgi?osname=el$releasever&basearch=$basearch&native=1&sys_ven_id=$sys_ven_id&sys_dev_id=$sys_dev_id&dellsysidpluginver=$dellsysidpluginver"
-default[:repo][:dell][:download_firmware] = false
-if node[:dmi] and node[:dmi][:system] and node[:dmi][:system][:manufacturer] and node[:dmi][:system][:manufacturer] =~ /dell/i and node[:platform_version].to_f >= 5
-  set[:repo][:dell][:enabled] = true
+default["repo"]["dell"]["key"] = "RPM-GPG-KEY-dell"
+default["repo"]["dell"]["community_url"] = "http://linux.dell.com/repo/community/mirrors.cgi?osname=el#{node["platform_version"].to_i}\&basearch=$basearch"
+default["repo"]["dell"]["firmware_url"] = "http://linux.dell.com/repo/firmware/mirrors.pl?dellsysidpluginver=$dellsysidpluginver"
+default["repo"]["dell"]["omsa_independent_url"] = "http://linux.dell.com/repo/hardware/latest/mirrors.cgi?osname=el$releasever&basearch=$basearch&native=1&dellsysidpluginver=$dellsysidpluginver"
+default["repo"]["dell"]["omsa_specific_url"] = "http://linux.dell.com/repo/hardware/latest/mirrors.cgi?osname=el$releasever&basearch=$basearch&native=1&sys_ven_id=$sys_ven_id&sys_dev_id=$sys_dev_id&dellsysidpluginver=$dellsysidpluginver"
+default["repo"]["dell"]["download_firmware"] = false
+if node["dmi"] and node["dmi"]["system"] and node["dmi"]["system"]["manufacturer"] and node["dmi"]["system"]["manufacturer"] =~ /dell/i and node["platform_version"].to_f >= 5
+  set["repo"]["dell"]["enabled"] = true
 else 
-  set[:repo][:dell][:enabled] = false
+  set["repo"]["dell"]["enabled"] = false
 end
