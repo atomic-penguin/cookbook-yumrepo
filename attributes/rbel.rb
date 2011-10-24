@@ -17,4 +17,4 @@
 # limitations under the License.
 #
 
-default["repo"]["rbel"]["url"] = "http://rbel.frameos.org/rbel#{node[:platform_version].to_i}/stable/el#{node["platform_version"].to_i}/$basearch"
+default["repo"]["rbel"]["url"] = "http://rbel.frameos.org/stable/el#{node["platform_version"].to_i}/$basearch"
