@@ -1,8 +1,9 @@
 #
 # Cookbook Name:: yumrepo
-# Recipe:: postgresql91
+# Attributes:: postgresql91 
 #
-# Copyright 2012, Bryan W. Berry (<bryan.berry@gmail.com>)
+# Copyright 2011, Eric G. Wolfe 
+# Copyright 2010, Tippr, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,15 +18,5 @@
 # limitations under the License.
 #
 
-cookbook_file "#{node["repo"]["key_path"]}/#{node["repo"]["postgresql91"]["key"]}"
-
-yum_key node["repo"]["postgresql91"]["key"] do
-  action :add
-end
-
-yum_repository "postgresql91" do
-  description "PostgreSQL 9.1"
-  key node["repo"]["postgresql91"]["key"]
-  url node["repo"]["postgresql91"]["url"]
-  action :add
-end
+default["repo"]["postgresql91"]["url"] = "http://yum.pgrpms.org/9.1/redhat/rhel-$releasever-$basearch"
+default["repo"]["postgresql91"]["key"] = "RPM-GPG-KEY-PGDG"
