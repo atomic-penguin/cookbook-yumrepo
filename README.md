@@ -120,6 +120,9 @@ yumrepo::zenoss
 yumrepo::corporate
 - Generic example recipe to be used with an internal Yum mirror, or repository.
 
+yumrepo::jenkins
+- Jenkins CI yum repository
+
 License and Author
 ==================
 
