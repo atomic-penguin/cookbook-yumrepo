@@ -17,14 +17,14 @@
 # limitations under the License.
 #
 
-yum_key node["repo"]["zenoss"]["key"] do
-  url node["repo"]["zenoss"]["key_url"]
+yum_key node['repo']['zenoss']['key'] do
+  url node['repo']['zenoss']['key_url']
   action :add
 end
 
 yum_repository "zenoss" do
   description "ZenOss Stable repo"
-  key node["repo"]["zenoss"]["key"]
-  url node["repo"]["zenoss"]["url"]
+  key node['repo']['zenoss']['key']
+  url node['repo']['zenoss']['url']
   action :add
 end

@@ -18,5 +18,5 @@
 # limitations under the License.
 #
 
-default["repo"]["annvix"]["key"] = "RPM-GPG-KEY-annvix"
-default["repo"]["annvix"]["url"] = "http://repo.annvix.org/media/EL#{node[:platform_version].split('.')[0]}/$basearch" 
+default['repo']['annvix']['key'] = "RPM-GPG-KEY-annvix"
+default['repo']['annvix']['url'] = "http://repo.annvix.org/media/EL#{node['platform_version'].split('.')[0]}/$basearch" 

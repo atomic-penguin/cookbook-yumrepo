@@ -18,15 +18,15 @@
 # limitations under the License.
 #
 
-yum_key node["repo"]["epel"]["key"] do
-  url  node["repo"]["epel"]["key_url"]
+yum_key node['repo']['epel']['key'] do
+  url  node['repo']['epel']['key_url']
   action :add
 end
 
 yum_repository "epel" do
   description "Extra Packages for Enterprise Linux"
-  key node["repo"]["epel"]["key"]
-  url node["repo"]["epel"]["url"]
+  key node['repo']['epel']['key']
+  url node['repo']['epel']['url']
   mirrorlist true
   action :add
 end

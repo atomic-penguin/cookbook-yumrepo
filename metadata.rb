@@ -3,7 +3,7 @@ maintainer_email "wolfe21@marshall.edu"
 license          "Apache 2.0"
 description      "Installs and configures EPEL, ELFF, Dell, and VMware yum repositories."
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          "0.15.2"
+version          "0.15.4"
 depends          "yum"
 recipe "yumrepo::default", "Installs EPEL, ELFF, Dell, and VMware Tools repositories."
 recipe "yumrepo::epel", "Installs Fedora Extra Packages for Enterprise Linux (EPEL) repository"
@@ -15,7 +15,7 @@ recipe "yumrepo::postgresql9", "PostgreSQL 9.0 RPMs from pgrpms.org"
 recipe "yumrepo::zenoss", "YUM repo for ZenOss stable"
 recipe "yumrepo::jenkins", "Jenkins CI"
 
-%w{ redhat centos scientific }.each do |os|
+%w{ redhat centos scientific amazon }.each do |os|
   supports os, ">= 5.0"
 end
 

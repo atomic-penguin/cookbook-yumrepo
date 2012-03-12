@@ -17,15 +17,15 @@
 # limitations under the License.
 #
 
-cookbook_file "#{node["repo"]["key_path"]}/#{node["repo"]["postgresql"]["key"]}"
+cookbook_file "#{node['repo']['key_path']}/#{node['repo']['postgresql']['key']}"
 
-yum_key node["repo"]["postgresql"]["key"] do
+yum_key node['repo']['postgresql']['key'] do
   action :add
 end
 
 yum_repository "postgresql9" do
   description "PostgreSQL 9.0"
-  key node["repo"]["postgresql"]["key"] 
-  url node["repo"]["postgresql"]["url"] 
+  key node['repo']['postgresql']['key'] 
+  url node['repo']['postgresql']['url'] 
   action :add
 end

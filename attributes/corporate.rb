@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-default["repo"]["corp"]["name"] = "example"
-default["repo"]["corp"]["url"] = "http://yum.#{node["repo"]["corp"]["name"]}.com/yum"
-default["repo"]["corp"]["key"] = nil
-default["repo"]["corp"]["key_url"] = "#{node["repo"]["corp"]["url"]}/#{node["repo"]["corp"]["key"]}"
+default['repo']['corp']['name'] = "example"
+default['repo']['corp']['url'] = "http://yum.#{node['repo']['corp']['name']}.com/yum"
+default['repo']['corp']['key'] = nil
+default['repo']['corp']['key_url'] = "#{node['repo']['corp']['url']}/#{node['repo']['corp']['key']}"

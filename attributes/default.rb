@@ -17,4 +17,4 @@
 # limitations under the License.
 #
 
-default["repo"]["key_path"] = "/etc/pki/rpm-gpg"
+default['repo']['key_path'] = "/etc/pki/rpm-gpg"

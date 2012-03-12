@@ -18,22 +18,22 @@
 # limitations under the License.
 #
 
-if not node["repo"]["vmware"]["enabled"]
+if not node['repo']['vmware']['enabled']
   yum_repository "vmware-tools" do
     action :remove
   end
   return
 end
 
-yum_key node["repo"]["vmware"]["key"] do
-  url node["repo"]["vmware"]["key_url"]
+yum_key node['repo']['vmware']['key'] do
+  url node['repo']['vmware']['key_url']
   action :add
 end
 
 yum_repository "vmware-tools" do
   description "VMware Tools"
-  key node["repo"]["vmware"]["key"]
-  url node["repo"]["vmware"]["url"] 
+  key node['repo']['vmware']['key']
+  url node['repo']['vmware']['url'] 
   action :add
 end
 
@@ -48,7 +48,7 @@ execute "/usr/bin/vmware-uninstall-tools.pl" do
   only_if {File.exists?("/usr/bin/vmware-uninstall-tools.pl")}
 end
 
-node["repo"]["vmware"]["required_packages"].each do |vmware_pkg|
+node['repo']['vmware']['required_packages'].each do |vmware_pkg|
   package vmware_pkg
 end
 
@@ -57,10 +57,8 @@ service "vmware-tools" do
   action [ :enable, :start ]
 end
 
-if node["repo"]["vmware"]["install_optional"]
-  node["repo"]["vmware"]["optional_packages"].each do |optional_pkg|
+if node['repo']['vmware']['install_optional']
+  node['repo']['vmware']['optional_packages'].each do |optional_pkg|
     package optional_pkg
   end
 end
-
-# vim: ai et sts=2 sw=2 ts=2

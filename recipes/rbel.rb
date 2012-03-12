@@ -17,15 +17,15 @@
 # limitations under the License.
 #
 
-cookbook_file "#{node["repo"]["key_path"]}/#{node["repo"]["rbel"]["key"]}"
+cookbook_file "#{node['repo']['key_path']}/#{node['repo']['rbel']['key']}"
 
-yum_key node["repo"]["rbel"]["key"] do
+yum_key node['repo']['rbel']['key'] do
   action :add
 end
 
-yum_repository "rbel#{node["platform_version"].to_i}" do
-  description "RBEL #{node["platform_version"].to_i} repo"
-  key node["repo"]["rbel"]["key"] 
-  url node["repo"]["rbel"]["url"] 
+yum_repository "rbel#{node['platform_version'].to_i}" do
+  description "RBEL #{node['platform_version'].to_i} repo"
+  key node['repo']['rbel']['key'] 
+  url node['repo']['rbel']['url'] 
   action :add
 end

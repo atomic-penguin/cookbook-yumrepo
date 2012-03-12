@@ -17,6 +17,6 @@
 # limitations under the License.
 #
 
-default["repo"]["zenoss"]["url"] = "http://dev.zenoss.com/yum/stable/"
-default["repo"]["zenoss"]["key"] = "RPM-GPG-KEY-zenoss"
-default["repo"]["zenoss"]["key_url"] = "http://dev.zenoss.com/yum/#{node["repo"]["zenoss"]["key"]}"
+default['repo']['zenoss']['url'] = "http://dev.zenoss.com/yum/stable/"
+default['repo']['zenoss']['key'] = "RPM-GPG-KEY-zenoss"
+default['repo']['zenoss']['key_url'] = "http://dev.zenoss.com/yum/#{node['repo']['zenoss']['key']}"

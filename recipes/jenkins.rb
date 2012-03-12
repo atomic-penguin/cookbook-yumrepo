@@ -17,14 +17,14 @@
 # limitations under the License.
 #
 
-yum_key node["repo"]["jenkins"]["key"] do
-  url  node["repo"]["jenkins"]["key_url"]
+yum_key node['repo']['jenkins']['key'] do
+  url  node['repo']['jenkins']['key_url']
   action :add
 end
 
 yum_repository "jenkins" do
   description "Jenkins"
-  key node["repo"]["jenkins"]["key"]
-  url node["repo"]["jenkins"]["url"]
+  key node['repo']['jenkins']['key']
+  url node['repo']['jenkins']['url']
   action :add
 end

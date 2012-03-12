@@ -17,15 +17,15 @@
 # limitations under the License.
 #
 
-cookbook_file "#{node["repo"]["key_path"]}/#{node["repo"]["annvix"]["key"]}"
+cookbook_file "#{node['repo']['key_path']}/#{node['repo']['annvix']['key']}"
 
-yum_key node["repo"]["annvix"]["key"] do
+yum_key node['repo']['annvix']['key'] do
   action :add
 end
 
 yum_repository "annvix" do
-  description "CentOS/RHEL-EL#{node["platform_version"].split('.')[0]} - Annvix"
-  key node["repo"]["annvix"]["key"]
-  url node["repo"]["annvix"]["url"] 
+  description "CentOS/RHEL-EL#{node['platform_version'].split('.')[0]} - Annvix"
+  key node['repo']['annvix']['key']
+  url node['repo']['annvix']['url'] 
   action :add
 end

@@ -17,11 +17,11 @@
 # limitations under the License.
 #
 
-default["repo"]["epel"]["url"] = "http://mirrors.fedoraproject.org/mirrorlist?repo=epel-#{node[:platform_version].split('.')[0]}&arch=$basearch"
+default['repo']['epel']['url'] = "http://mirrors.fedoraproject.org/mirrorlist?repo=epel-#{node['platform_version'].split('.')[0]}&arch=$basearch"
 
-if node["platform_version"].to_i >= 6
-  set["repo"]["epel"]["key"] = "RPM-GPG-KEY-EPEL-6"
+if node['platform_version'].to_i >= 6
+  set['repo']['epel']['key'] = "RPM-GPG-KEY-EPEL-6"
 else
-  set["repo"]["epel"]["key"] = "RPM-GPG-KEY-EPEL"
+  set['repo']['epel']['key'] = "RPM-GPG-KEY-EPEL"
 end
-default["repo"]["epel"]["key_url"] = "http://download.fedora.redhat.com/pub/epel/#{node["repo"]["epel"]["key"]}"
+default['repo']['epel']['key_url'] = "http://download.fedoraproject.org/pub/epel/#{node['repo']['epel']['key']}"

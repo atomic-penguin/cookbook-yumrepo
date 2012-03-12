@@ -48,11 +48,6 @@ yumrepo::epel
    Fedora EPEL (Extra Packages for Enterprise Linux)
   * See http://fedoraproject.org/wiki/EPEL for more info
 
-yumrepo::elff
--------------
-
-- ELFF repo is deprecated, this is left in to clean up leftover repo files.
-
 yumrepo::dell
 -------------
 
@@ -61,8 +56,6 @@ yumrepo::dell
   - community / formerly the software repository
   - firmware / Convenient but unsupported by Dell
   * See http://linux.dell.com for more info
-
-# Attributes
 
 - repo[:dell][:download_firmware] = true||false
   * disables/enables community/firmware repositories in dell recipe
@@ -118,9 +111,13 @@ yumrepo::zenoss
   * See http://zenoss.org for more information
 
 yumrepo::corporate
+------------------
+
 - Generic example recipe to be used with an internal Yum mirror, or repository.
 
 yumrepo::jenkins
+----------------
+
 - Jenkins CI yum repository
 
 License and Author

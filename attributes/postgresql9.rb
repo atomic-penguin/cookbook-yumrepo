@@ -18,5 +18,5 @@
 # limitations under the License.
 #
 
-default["repo"]["postgresql"]["url"] = "http://yum.pgrpms.org/9.0/redhat/rhel-$releasever-$basearch"
-default["repo"]["postgresql"]["key"] = "RPM-GPG-KEY-PGDG"
+default['repo']['postgresql']['url'] = "http://yum.pgrpms.org/9.0/redhat/rhel-$releasever-$basearch"
+default['repo']['postgresql']['key'] = "RPM-GPG-KEY-PGDG"
