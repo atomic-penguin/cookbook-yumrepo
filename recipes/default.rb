@@ -20,4 +20,3 @@
 include_recipe "yum::yum"
 include_recipe "yumrepo::epel"
 include_recipe "yumrepo::dell"
-include_recipe "yumrepo::vmware-tools"

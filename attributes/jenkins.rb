@@ -19,4 +19,4 @@
 
 default['repo']['jenkins']['url'] = "http://pkg.jenkins-ci.org/redhat"
 default['repo']['jenkins']['key'] = "jenkins-ci.org.key"
-default['repo']['jenkins']['key_url'] = "http://pkg.jenkins-ci.org/redhat/#{node['repo']['jenkins']['key']}"
+default['repo']['jenkins']['key_url'] = "#{node['repo']['jenkins']['url']}/#{node['repo']['jenkins']['key']}"

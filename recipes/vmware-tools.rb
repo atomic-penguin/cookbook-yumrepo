@@ -18,7 +18,7 @@
 # limitations under the License.
 #
 
-if not node['repo']['vmware']['enabled']
+unless node['repo']['vmware']['enabled']
   yum_repository "vmware-tools" do
     action :remove
   end
@@ -52,13 +52,14 @@ node['repo']['vmware']['required_packages'].each do |vmware_pkg|
   package vmware_pkg
 end
 
-service "vmware-tools" do
-  supports :status => true, :restart => true
-  action [ :enable, :start ]
+node['repo']['vmware']['services'].each do |vmware_svc|
+  service vmware_svc do
+    action [ :enable, :start ]
+  end
 end
 
-if node['repo']['vmware']['install_optional']
-  node['repo']['vmware']['optional_packages'].each do |optional_pkg|
-    package optional_pkg
+node['repo']['vmware']['optional_packages'].each do |optional_pkg|
+  package optional_pkg do
+    only_if { node['repo']['vmware']['install_optional'] }
   end
 end
