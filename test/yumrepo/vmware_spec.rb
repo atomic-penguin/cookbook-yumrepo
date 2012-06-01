@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: yumrepo 
-# Test:: annvix_spec 
+# Test:: vmware_spec 
 #
 # Author:: Eric G. Wolfe
 #

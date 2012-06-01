@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-if ! node['repo']['corp']['key'].nil?
+unless node['repo']['corp']['key'].nil?
   yum_key node['repo']['corp']['key'] do
     url node['repo']['corp']['key_url'] 
     action :add

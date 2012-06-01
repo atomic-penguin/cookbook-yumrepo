@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: yumrepo 
-# Test:: annvix_spec 
+# Test:: corporate_spec 
 #
 # Author:: Eric G. Wolfe
 #
@@ -27,12 +27,25 @@ describe 'Repo::Attributes::Default' do
 
   before do
     @node = Chef::Node.new
+    @node.consume_external_attrs(Mash.new(ohai_data), {})
     @node.from_file(File.join(File.dirname(__FILE__), %w{.. .. attributes corporate.rb}))
   end
 
-  describe "in the default attributes" do
+  describe "for domain marshall.edu and platform centos 6.2" do
+    let(:ohai_data) do
+      { :platform => "centos",
+        :platform_family => "rhel",
+        :platform_version => "6.2",
+        :domain => "marshall.edu",
+      }
+    end
+
+    it "sets the corp.name to marshall" do
+      @node[attr_ns]['corp']['name'].must_equal "marshall"
+    end
+
     it "sets the corp.url to" do
-      @node[attr_ns]['corp']['url'].must_equal "http://yum.example.com/yum"
+      @node[attr_ns]['corp']['url'].must_equal "http://yum.marshall.edu/yum/rhel/6/$basearch"
     end
   end
 end

@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: yumrepo 
-# Test:: annvix_spec 
+# Test:: epel_spec 
 #
 # Author:: Eric G. Wolfe
 #

@@ -100,8 +100,8 @@ Includes recipes:
 
 ### yumrepo::annvix
 
-- Annvix repository for packages usable with Red Hat Enterprise Linux and
-   CentOS.
+- Annvix repository for packages usable with Red Hat Enterprise Linux
+  and CentOS.
   * See http://annvix.org for more information.
 
 ### yumrepo::postgresql9
@@ -116,7 +116,10 @@ Includes recipes:
 
 ### yumrepo::corporate
 
-- Generic example recipe to be used with an internal Yum mirror, or repository.
+- Generic example recipe to be used with an internal Yum mirror, or
+  repository.
+  * By default this recipe uses the basename of your domain as the
+    repository name.
 
 ### yumrepo::jenkins
 

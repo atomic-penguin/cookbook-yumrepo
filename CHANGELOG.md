@@ -1,3 +1,7 @@
+## v0.16.2
+
+    Change corporate recipe to key off domain name.
+
 ## v0.16.0
 
     Add VMWare Tools for ESX v5.0u1, along with a vmware-tools-upgrade

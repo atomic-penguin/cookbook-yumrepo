@@ -16,7 +16,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-default['repo']['corp']['name'] = "example"
-default['repo']['corp']['url'] = "http://yum.#{node['repo']['corp']['name']}.com/yum"
+
+# Take the first part of the OHAI doman attribute as repo name (example from example.com)
+default['repo']['corp']['name'] = node['domain'].split('.')[0]
+
+# Set the base_url to yum.example.com/yum
+default['repo']['corp']['base_url'] = "http://yum.#{node['domain']}/yum"
+
+# Set the corp url to yum.example.com/yum/rhel/5/{i386,x86_64}
+default['repo']['corp']['url'] = "#{node['repo']['corp']['base_url']}/#{node['platform_family']}/#{node['platform_version'].to_i}/$basearch"
+
 default['repo']['corp']['key'] = nil
-default['repo']['corp']['key_url'] = "#{node['repo']['corp']['url']}/#{node['repo']['corp']['key']}"
+
+# Set the key url to yum.example.com/yum/<key file>
+default['repo']['corp']['key_url'] = "#{node['repo']['corp']['base_url']}/#{node['repo']['corp']['key']}"
