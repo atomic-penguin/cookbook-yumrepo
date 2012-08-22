@@ -1,3 +1,8 @@
+yumrepo v0.16.3
+
+Set name/base_url to localdomain in the case Ohai `domain` is
+unavailable.  Fixes chef-solo compilation error on Vagrant boxes.
+
 ## v0.16.2
 
     Change corporate recipe to key off domain name.

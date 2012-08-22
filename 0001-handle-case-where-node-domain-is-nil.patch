@@ -1,0 +1,30 @@
+From cb325cdd883489da1f694bb5822fd435a101dfb1 Mon Sep 17 00:00:00 2001
+From: Bryan Berry <bryan.berry@gmail.com>
+Date: Wed, 22 Aug 2012 09:18:50 +0200
+Subject: [PATCH] handle case where node['domain'] is nil
+
+---
+ attributes/corporate.rb |    5 +++--
+ 1 files changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/attributes/corporate.rb b/attributes/corporate.rb
+index 7b27e47..211d9ce 100644
+--- a/attributes/corporate.rb
++++ b/attributes/corporate.rb
+@@ -17,10 +17,11 @@
+ # limitations under the License.
+ #
+ 
++
+ # Take the first part of the OHAI doman attribute as repo name (example from example.com)
+-default['repo']['corp']['name'] = node['domain'].split('.')[0]
++# if it is not nil
++default['repo']['corp']['name'] = node['domain'] ?  node['domain'].split('.')[0] : "localdomain"
+ 
+-# Set the base_url to yum.example.com/yum
+ default['repo']['corp']['base_url'] = "http://yum.#{node['domain']}/yum"
+ 
+ # Set the corp url to yum.example.com/yum/rhel/5/{i386,x86_64}
+-- 
+1.7.5.4
+
