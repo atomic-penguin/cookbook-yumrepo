@@ -17,10 +17,11 @@
 # limitations under the License.
 #
 
-# Take the first part of the OHAI doman attribute as repo name (example from example.com)
-default['repo']['corp']['name'] = node['domain'].split('.')[0]
 
-# Set the base_url to yum.example.com/yum
+# Take the first part of the OHAI doman attribute as repo name (example from example.com)
+# if it is not nil
+default['repo']['corp']['name'] = node['domain'] ?  node['domain'].split('.')[0] : "localdomain"
+
 default['repo']['corp']['base_url'] = "http://yum.#{node['domain']}/yum"
 
 # Set the corp url to yum.example.com/yum/rhel/5/{i386,x86_64}
