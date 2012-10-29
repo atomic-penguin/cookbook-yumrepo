@@ -4,7 +4,7 @@ license          "Apache 2.0"
 description      "Installs and configures EPEL, ELFF, Dell, and VMware yum repositories."
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          "0.16.3"
-depends          "yum"
+depends          "yum", ">= 1.0.0"
 name             "yumrepo"
 recipe "yumrepo::default", "Installs EPEL, and Dell repositories."
 recipe "yumrepo::corporate", "Example recipe for deploying rpms from an internal yum.example.com/yum repo"
