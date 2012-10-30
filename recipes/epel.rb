@@ -27,6 +27,6 @@ yum_repository "epel" do
   description "Extra Packages for Enterprise Linux"
   key node['repo']['epel']['key']
   url node['repo']['epel']['url']
-  mirrorlist true
+  mirrorlist node['repo']['epel']['url']
   action :add
 end
