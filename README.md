@@ -104,9 +104,9 @@ Includes recipes:
   and CentOS.
   * See http://annvix.org for more information.
 
-### yumrepo::postgresql9
+### yumrepo::postgresql9,91,92
 
-- PostgreSQL 9.0 RPMs
+- PostgreSQL 9.0, 9.1, and 9.2 RPMs
   * See http://pgrpms.org for more information.
 
 ### yumrepo::zenoss
