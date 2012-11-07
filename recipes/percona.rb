@@ -2,8 +2,7 @@
 # Cookbook Name:: yumrepo
 # Recipe:: percona
 #
-# Copyright 2010, Eric G. Wolfe
-# Copyright 2010, Tippr Inc.
+# Copyright 2012, Paul Graydon
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.

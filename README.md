@@ -25,18 +25,13 @@ The yumrepo::dell recipe requires Dell manufactured hardware.  This
 recipe should automatically disable itself if non-Dell hardware is
 detected by Ohai
 
-A **breaking change in this cookbook is the introduction of an upgrade
-recipe** for vmware-tools.  Since VMWare does not support upgrades
-on their packaged vmware-tools, I created a vmware-tools-upgrade
-recipe to migrate from vmware-tools 4.1 to 5.0u1.  You should
-ensure the yumrepo recipes are not in a base role, until all your nodes
-have been migrated to 5.0u1.  Due to this incompatibility, vmware-tools
-has been removed from the default recipe.  If you still need vmware-tools
-for ESX 4.1, use the previous version of this cookbook 0.15.4.
-
-The yumrepo::vmware-tools recipe requires a VMWare Virtual Machine.
-This recipe should automatically disable itself if non-VMWare hardware
-is detected by Ohai.
+A **major breaking change in this cookbook is the introduction of an
+upgrade recipe** for vmware-tools.  Since VMWare does not support
+upgrades on their packaged vmware-tools, I created a
+vmware-tools-upgrade recipe to migrate from vmware-tools 4.1 to 5.0u1.  
+You should ensure the yumrepo recipes are not in a base role, until
+all your nodes have been migrated to 5.0u1.  Due to this incompatibility,
+vmware-tools has been removed from the default recipe.
 
 ## Individual Recipe Usage:
 
@@ -62,7 +57,7 @@ Includes recipes:
   - firmware / Convenient but unsupported by Dell
   * See http://linux.dell.com for more info
 
-- repo[:dell][:download_firmware] = true||false
+- repo['dell]['download_firmware'] = true||false
   * disables/enables community/firmware repositories in dell recipe
   * OMSA (hardware) repository will detect Dell hardware platform and
     enable itself, dynamically. It is not affected by this attribute.
@@ -83,18 +78,16 @@ Includes recipes:
 ### yumrepo::vmware-tools
 
 - Uninstalls VMwareTools rpm installed from the
-   VMware ESX "Install/Upgrade VMware Tools" menu
+   VMware "Install/Upgrade VMware Tools" menu
 - Uninstalls manually installed vmware-tools
    packages, the recipe needs to first run
    vmware-uninstall-tools.pl to use the RPM packages
    from the repo.
 - Provides RPM keys and repo file for
-   VMware Tools for the ESX 4.1 release
+   VMware Tools for ESX
   * See http://packages.vmware.com for more info
 
-#### Attributes
-
-- repo[:vmware][:release] (ESX version number, default 5.0u1)
+- repo['vmware']['release'] (ESX version number, default 5.0u1)
   * This is used to determine the correct URL in the
     VMware RHEL5/CentOS repository.
 
@@ -104,10 +97,13 @@ Includes recipes:
   and CentOS.
   * See http://annvix.org for more information.
 
-### yumrepo::postgresql9,91,92
+### yumrepo::postgresql
 
-- PostgreSQL 9.0, 9.1, and 9.2 RPMs
+- PostgreSQL RPMs
   * See http://pgrpms.org for more information.
+
+- repo['postgresql']['version']
+  * Select version of Postgres to install via attribute.
 
 ### yumrepo::zenoss
 

@@ -1,8 +1,9 @@
 #
 # Cookbook Name:: yumrepo
-# Recipe:: postgresql9
+# Recipe:: postgresql
 #
 # Copyright 2010, Tippr Inc.
+# Copyright 2012, Bryan W. Berry (<bryan.berry@gmail.com>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,14 +18,17 @@
 # limitations under the License.
 #
 
+# Flatten the version float (9.0 => 90) for repo filename.
+version_flat = (node['repo']['postgresql']['version'] * 10).to_i
+
 cookbook_file "#{node['repo']['key_path']}/#{node['repo']['postgresql']['key']}"
 
 yum_key node['repo']['postgresql']['key'] do
   action :add
 end
 
-yum_repository "postgresql9" do
-  description "PostgreSQL 9.0"
+yum_repository "postgresql#{version_flat}" do
+  description "PostgreSQL #{node['repo']['postgresql']['version']}"
   key node['repo']['postgresql']['key'] 
   url node['repo']['postgresql']['url'] 
   action :add
