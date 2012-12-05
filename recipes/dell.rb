@@ -30,32 +30,28 @@ end
 
 yum_repository "dell-community-repository" do
   description "Dell Community Repository"
-  url node['repo']['dell']['community_url']
-  mirrorlist true
+  mirrorlist node['repo']['dell']['community_url']
   key node['repo']['dell']['key']
   action :add
 end
 
 yum_repository "dell-omsa-indep" do
   description "Dell OMSA repository - Hardware independent"
-  url node['repo']['dell']['omsa_independent_url']
-  mirrorlist true
+  mirrorlist node['repo']['dell']['omsa_independent_url']
   key node['repo']['dell']['key']
   action :add
 end
 
 yum_repository "dell-omsa-specific" do
   description "Dell OMSA repository - Hardware specific"
-  url node['repo']['dell']['omsa_specific_url']
-  mirrorlist true
+  mirrorlist node['repo']['dell']['omsa_specific_url']
   key node['repo']['dell']['key']
   action :add
 end
 
 yum_repository "fwupdate" do
   description "Firmware updates"
-  url node['repo']['dell']['firmware_url']
-  mirrorlist true
+  mirrorlist node['repo']['dell']['firmware_url']
   key node['repo']['dell']['key']
   action :add
 end

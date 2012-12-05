@@ -1,5 +1,9 @@
 ## yumrepo
 
+### v0.16.5
+
+Fix mirrorlist attribute in Dell recipe.
+
 ### v0.16.4
 
 Thanks to Paul Graydon (@twirrim) for adding Percona MySQL repositories.
