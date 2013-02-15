@@ -110,6 +110,11 @@ Includes recipes:
 - ZenOss Network Monitoring System
   * See http://zenoss.org for more information
 
+### yumrepo::zeromq
+
+- [ZeroMQ](http://www.zeromq.org/distro:centos)
+  * This repository hosts the latest stable builds for zeromq
+
 ### yumrepo::corporate
 
 - Generic example recipe to be used with an internal Yum mirror, or
