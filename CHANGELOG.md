@@ -1,5 +1,15 @@
 ## yumrepo
 
+### v0.16.6
+
+* add zeromq repo
+  - contributed by @BryanWB
+* Bump chef gem in Gemfile
+  - Locked chef gem at 10.X, 'cause minitest spec seems to be broke
+    on chef 11.x.
+  
+TODO - Replace tests with chefspec
+
 ### v0.16.5
 
 Fix mirrorlist attribute in Dell recipe.
