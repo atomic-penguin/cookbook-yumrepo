@@ -20,7 +20,7 @@
 
 # Attributes for VMware 5.x recipe
 default['repo']['vmware']['key'] = "VMWARE-PACKAGING-GPG-RSA-KEY"
-default['repo']['vmware']['release'] = "5.0u1"
+default['repo']['vmware']['release'] = "5.1"
 default['repo']['vmware']['install_optional'] = false
 default['repo']['vmware']['services'] = %w{ vmci vmware-tools-services }
 
