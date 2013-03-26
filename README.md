@@ -28,10 +28,9 @@ detected by Ohai
 A **major breaking change in this cookbook is the introduction of an
 upgrade recipe** for vmware-tools.  Since VMWare does not support
 upgrades on their packaged vmware-tools, I created a
-vmware-tools-upgrade recipe to migrate from vmware-tools 4.1 to 5.0u1.  
+vmware-tools-upgrade recipe to migrate from vmware-tools 4.1 to 5.x.  
 You should ensure the yumrepo recipes are not in a base role, until
-all your nodes have been migrated to 5.0u1.  Due to this incompatibility,
-vmware-tools has been removed from the default recipe.
+all your nodes have been migrated to 5.x.
 
 ## Individual Recipe Usage:
 
@@ -71,7 +70,7 @@ Includes recipes:
 
 - Removes vmware-tools for ESX 4.1 installed with this cookbook.
   Then includes the yumrepo::vmware-tools recipe to re-install
-  VMWare Tools compatiblie with ESX 5.0u1.  *This must be in
+  VMWare Tools compatiblie with ESX 5.1.  *This must be in
   your run list before the yumrepo::vmware-tools recipe* to
   successfully upgrade the tools with the recipe.
 
@@ -87,7 +86,7 @@ Includes recipes:
    VMware Tools for ESX
   * See http://packages.vmware.com for more info
 
-- repo['vmware']['release'] (ESX version number, default 5.0u1)
+- repo['vmware']['release'] (ESX version number, default 5.1)
   * This is used to determine the correct URL in the
     VMware RHEL5/CentOS repository.
 

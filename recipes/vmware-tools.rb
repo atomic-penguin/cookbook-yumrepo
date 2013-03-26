@@ -34,7 +34,7 @@ yum_repository "vmware-tools" do
   description "VMware Tools"
   key node['repo']['vmware']['key']
   url node['repo']['vmware']['url'] 
-  action :add
+  action :create
 end
 
 # Cleanup VMwareTools rpm, if exists
@@ -54,6 +54,7 @@ end
 
 node['repo']['vmware']['services'].each do |vmware_svc|
   service vmware_svc do
+    provider node['repo']['vmware']['service_provider']
     action [ :enable, :start ]
   end
 end

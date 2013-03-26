@@ -22,7 +22,14 @@
 default['repo']['vmware']['key'] = "VMWARE-PACKAGING-GPG-RSA-KEY"
 default['repo']['vmware']['release'] = "5.1"
 default['repo']['vmware']['install_optional'] = false
-default['repo']['vmware']['services'] = %w{ vmci vmware-tools-services }
+default['repo']['vmware']['services'] = %w{ vmware-tools-services }
+
+case node['platform_version'].to_i
+when 6
+  default['repo']['vmware']['service_provider'] = Chef::Provider::Service::Upstart
+else
+  default['repo']['vmware']['service_provider'] = Chef::Provider::Service::Init::Redhat
+end
 
 if node['dmi'] and node['dmi']['system'] and node['dmi']['system']['manufacturer'] and node['dmi']['system']['manufacturer'] =~ /vmware/i and node['platform_version'].to_f >= 5
   set['repo']['vmware']['enabled'] = true

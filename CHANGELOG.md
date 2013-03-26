@@ -1,5 +1,17 @@
 ## yumrepo
 
+### v1.0.0
+
+* vmware-tools
+  - Bump version to ESX 5.1
+  - re-instated to default recipe
+  - add upstart support for vmware-tools 9.0 packages on EL 6
+  - Change LWRP action to create (updates repo file), instead of add
+* deprecate/remove epel recipe
+  - has been moved over to Opscodes yum::epel
+* disable minitest spec for Travis
+  - This isn't working on TravisCI, will revisit unit tests later
+
 ### v0.16.6
 
 * add zeromq repo
