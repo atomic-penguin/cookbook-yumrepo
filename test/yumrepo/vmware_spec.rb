@@ -19,8 +19,7 @@
 # limitations under the License.
 #
 require File.join(File.dirname(__FILE__), %w{.. support spec_helper})
-require 'chef/node'
-require 'chef/platform'
+require 'chef'
 
 describe 'Repo::Attributes::Default' do
   let(:attr_ns) { 'repo' }
@@ -39,6 +38,9 @@ describe 'Repo::Attributes::Default' do
           :system => {
             :manufacturer => "VMWare, Inc."
           }
+        },
+        :vmware => {
+          :release => 5.1
         }
       }
     end
@@ -47,12 +49,8 @@ describe 'Repo::Attributes::Default' do
       @node[attr_ns]['vmware']['required_packages'].must_equal %w{ vmware-tools-esx-nox vmware-tools-esx-kmods }
     end
 
-    it "sets the vmware release to 5.0u1" do
-      @node[attr_ns]['vmware']['release'].must_equal "5.0u1"
-    end
-
     it "sets the vmware.url to" do
-      @node[attr_ns]['vmware']['url'].must_equal "http://packages.vmware.com/tools/esx/5.0u1/rhel6/$basearch"
+      @node[attr_ns]['vmware']['url'].must_equal "http://packages.vmware.com/tools/esx/5.1/rhel6/$basearch"
     end
   end
 end

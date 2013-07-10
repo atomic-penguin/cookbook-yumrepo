@@ -1,5 +1,13 @@
 ## yumrepo
 
+### v2.0.0
+
+* Add test-kitchen skeleton
+  - Validated recipes against yum v2.3.0
+* Fix minitest-spec tests for Chef 11
+* Deprecated annvix repo
+  - Appears to be no longer maintained for EL6
+
 ### v1.0.0
 
 * vmware-tools

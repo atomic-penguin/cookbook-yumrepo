@@ -39,10 +39,10 @@ all your nodes have been migrated to 5.x.
 Includes recipes:
 
 * yum::yum
-* epel
-* dell
+* yum::epel
+* yumrepo::dell
 
-### yumrepo::epel
+### yum::epel
 
 - Provides RPM keys and repo file for
    Fedora EPEL (Extra Packages for Enterprise Linux)
@@ -90,11 +90,10 @@ Includes recipes:
   * This is used to determine the correct URL in the
     VMware RHEL5/CentOS repository.
 
-### yumrepo::annvix
+### yumrepo::percona
 
-- Annvix repository for packages usable with Red Hat Enterprise Linux
-  and CentOS.
-  * See http://annvix.org for more information.
+- Percona MySQL repositories
+  * http://repo.percona.com/centos/
 
 ### yumrepo::postgresql
 

@@ -1,2 +1,4 @@
 metadata.json
 Gemfile.lock
+.kitchen/
+.kitchen.local.yml

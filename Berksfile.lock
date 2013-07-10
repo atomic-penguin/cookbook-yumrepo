@@ -1,0 +1,2 @@
+cookbook 'yumrepo', :path => '/home/wolfe21/chef/cookbooks/yumrepo'
+cookbook 'yum', :locked_version => '2.2.2'
