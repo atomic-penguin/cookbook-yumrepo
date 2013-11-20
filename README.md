@@ -124,6 +124,13 @@ Includes recipes:
 
 - Jenkins CI yum repository
 
+### yumrepo::zabbix
+
+- Zabbix yum repository
+
+- repo['zabbix']['version']
+  * Select version of Zabbix to install via attribute.
+
 ## License and Author
 
 Author:: Eric G. Wolfe
@@ -131,6 +138,9 @@ Copyright:: 2010-2011
 
 Author:: Tippr, Inc.
 Copyright:: 2010
+
+Author:: Alexander Milushev
+Copyright:: 2013
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

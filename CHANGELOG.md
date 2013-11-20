@@ -1,5 +1,10 @@
 ## yumrepo
 
+### v2.1.0
+ 
+* add zabbix repo
+  - contributed by @zunkree
+
 ### v2.0.0
 
 * Add test-kitchen skeleton
