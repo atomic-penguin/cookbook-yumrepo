@@ -1,5 +1,9 @@
 ## yumrepo
 
+### v2.1.0
+
+* Pin against yum < 3.0.0
+
 ### v2.0.0
 
 * Add test-kitchen skeleton
