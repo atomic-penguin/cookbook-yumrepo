@@ -1,5 +1,13 @@
 ## yumrepo
 
+### v3.0.0
+
+Deprecated, see individual cookbooks.
+
+[yum-corporate](http://community.opscode.com/cookbooks/yum-corporate)
+[yum-dell](http://community.opscode.com/cookbooks/yum-dell)
+[yum-vmware-tools](http://community.opscode.com/cookbooks/yum-vmware-tools)
+
 ### v2.1.0
 
 * Pin against yum < 3.0.0
